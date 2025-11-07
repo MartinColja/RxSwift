@@ -19,7 +19,10 @@ extension Target {
         .target(
             name: name,
             dependencies: dependencies,
-            resources: [.copy("PrivacyInfo.xcprivacy")]
+            resources: [.copy("PrivacyInfo.xcprivacy")],
+            swiftSettings: [
+                .define("TRACE_RESOURCES", .when(configuration: .debug))
+            ]
         )
     }
 }
